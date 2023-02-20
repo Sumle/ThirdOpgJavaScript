@@ -1,1 +1,22 @@
 <!DOCTYPE html>
+<html>
+<head>
+    <title>Silkes JavaScript SearchBar</title>
+    <link rel="stylesheet" type="text/JavaScript" href="Opg3JavaScript.vue"/>
+</head>
+<body>
+<h1><u>Search on a word</u></h1>
+<div id="app">
+    <div class="search-container" style="display: flex; align-items: center; margin-right: 10px;">
+      <input v-model="searchQuery" placeholder="Search...">
+      <button @click="search">Search</button>
+    </div>
+    <div class="search-results" v-if="searchResults.length">
+      <h3>Results:</h3>
+      <ul>
+        <li v-for="result in searchResults"></li>
+      </ul>
+    </div>
+</div>
+</body>
+</html>
