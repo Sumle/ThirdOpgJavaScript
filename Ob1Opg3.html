@@ -14,6 +14,7 @@
 <div id="app" class="cent">
   <input id="inputField" v-model="word" placeholder="A word please.." class="mx-1">
   <button id="button" class="btn btn-primary mx-1" v-on:click="wordManipulation">Results</button>
+  <h6>Click to see what happens</h6>
   <table class="table table-striped" v-if="words.length > 1">
     <tbody>
       <tr v-for="prop in words">

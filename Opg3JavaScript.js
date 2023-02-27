@@ -26,21 +26,17 @@ Vue.createApp({
     wordManipulation() {
       this.upperCase = this.word.toUpperCase();
       this.lowerCase = this.word.toLowerCase();
-      this.capitalizedWord = firstLetter(this.word);
+      this.firstLetter = firstLetter(this.word);
       this.lastLetter = lastLetter(this.word);
       this.reverseWord = reverse(this.word);
 
       this.words.push(
-        this.word,
-        this.lowerCase,
-        this.upperCase,
-        this.firstLetter,
-        this.lastLetter,
-        this.reverseWord)
-
-      if (this.word = null){
-        return;
-      }
+        this.word + ": this is the word you wrote",
+        this.lowerCase + ": this is the word with lowercase",
+        this.upperCase + ": this is the word with uppercase",
+        this.firstLetter + ": this is the word with the first letter capitalized",
+        this.lastLetter + ": this is the word with the last letter capitalized",
+        this.reverseWord + ": this is the word in reverse")
     }
   },
 }).mount("#app")
