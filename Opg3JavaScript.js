@@ -1,26 +1,46 @@
+function firstLetter(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+function lastLetter(word) {
+  let lastLet = word.charAt(word.length - 1);
+  let lastLetter = lastLet.toUpperCase();
+  return word.slice(0, word.length - 1) + lastLetter;
+}
+function reverse(word) {
+  return word.split("").reverse().join("");
+}
 Vue.createApp({
-  el: '#app',
-  data: {
-    searchQuery: '',
-    searchResults: []
+  data() {
+    return {
+      word: null, 
+      words: [],
+      lowerCase: null,
+      upperCase: null,
+      firstLetter: null,
+      lastLetter: null, 
+      capitalizedWord: null,
+      reverseWord: null
+    }
   },
   methods: {
-    search() {
-      // Generate variations of the search query
-      const variations = [
-        this.searchQuery,
-        this.searchQuery.toLowerCase(),
-        this.searchQuery.toUpperCase(),
-        this.searchQuery.charAt(0).toUpperCase() + this.searchQuery.slice(1),
-        this.searchQuery.charAt(0).toLowerCase() + this.searchQuery.slice(1),
-        this.searchQuery.split('').reverse().join('')
-      ];
+    wordManipulation() {
+      this.upperCase = this.word.toUpperCase();
+      this.lowerCase = this.word.toLowerCase();
+      this.capitalizedWord = firstLetter(this.word);
+      this.lastLetter = lastLetter(this.word);
+      this.reverseWord = reverse(this.word);
 
-      // Filter the variations to remove duplicates and empty strings
-      const filteredVariations = [...new Set(variations)].filter(v => v.trim() !== '');
+      this.words.push(
+        this.word,
+        this.lowerCase,
+        this.upperCase,
+        this.firstLetter,
+        this.lastLetter,
+        this.reverseWord)
 
-      // Update the searchResults array with the filtered variations
-      this.searchResults = filteredVariations;
+      if (this.word = null){
+        return;
+      }
     }
-  }
-});
+  },
+}).mount("#app")

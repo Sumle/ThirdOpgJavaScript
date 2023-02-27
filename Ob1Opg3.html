@@ -5,21 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Silkes JavaScript SearchBar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script> 
     <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 <body>
-<h1><u>Search on a word</u></h1>
-<div id="app">
-    <div class="search-container" style="display: flex; align-items: center; margin-right: 10px;">
-      <input v-model="searchQuery" placeholder="Search...">
-      <button v-on:click="search">Search</button>
-    </div>
-    <div class="search-results" v-if="searchResults.length">
-      <h3>Results:</h3>
-      <ul>
-        <li v-for="result in searchResults"></li>
-      </ul>
-    </div>
+<div id="app" class="cent">
+  <input id="inputField" v-model="word" placeholder="A word please.." class="mx-1">
+  <button id="button" class="btn btn-primary mx-1" v-on:click="wordManipulation">Results</button>
+  <table class="table table-striped" v-if="words.length > 1">
+    <tbody>
+      <tr v-for="prop in words">
+        <td>{{prop}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <script src="Opg3JavaScript.js"></script>
 </body>
