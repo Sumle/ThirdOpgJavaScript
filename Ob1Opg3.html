@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script> 
     <script src="https://unpkg.com/vue@next"></script>
-    <link rel="stylesheet" type="text/css" href="/css3.css">
+    <link rel="stylesheet" type="text/css" href="css3.css">
 </head>
 <body>
 <div id="app" class="cent">
   <input id="inputField" v-model="word" placeholder="A word please.." class="mx-1">
   <button id="button" class="btn btn-primary mx-1" v-on:click="wordManipulation">Results</button>
   <h6>Click to see what happens</h6>
+  <ul class="right" v-if="words.length > 1">
+    <li v-for="prop in words">{{ prop }}</li>
+  </ul>
   <table class="table table-striped" v-if="words.length > 1">
     <tbody>
       <tr v-for="prop in words">
