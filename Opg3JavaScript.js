@@ -19,11 +19,15 @@ Vue.createApp({
       firstLetter: null,
       lastLetter: null, 
       capitalizedWord: null,
-      reverseWord: null
+      showMessage: false,
+      reverseWord: null,
+      message: 'Click to see what happens',
     }
   },
   methods: {
     wordManipulation() {
+      this.message = "There ain't any word"
+      this.words.length = 0;
       this.upperCase = this.word.toUpperCase();
       this.lowerCase = this.word.toLowerCase();
       this.firstLetter = firstLetter(this.word);
@@ -37,6 +41,12 @@ Vue.createApp({
         this.firstLetter + ": this is the word with the first letter capitalized",
         this.lastLetter + ": this is the word with the last letter capitalized",
         this.reverseWord + ": this is the word in reverse")
+
+        if (this.word = null)
+        {
+                   
+          return;
+        }
     }
   },
 }).mount("#app")
